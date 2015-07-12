@@ -1,0 +1,6 @@
+source("getpower.R")
+power <- getpower()
+png("plot2.png", 480, 480)
+plot(power$ActivePower, type="l", xaxt="n", xlab=NA, ylab="Global Active Power (kilowatts)")
+axis(1, seq(1, nrow(power), length.out=3), c('Thu', 'Fri', 'Sat'))
+dev.off()

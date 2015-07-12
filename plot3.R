@@ -1,0 +1,10 @@
+source("getpower.R")
+power <- getpower()
+png("plot3.png", 480, 480)
+plot(power$Sub1, type='l', xaxt='n', xlab=NA, ylab='Energy sub metering')
+lines(power$Sub2, col='red')
+lines(power$Sub3, col='blue')
+legend('topright', lty=1, col=c('black', 'red', 'blue'),
+       legend=c('Sub_metering_1', 'Sub_metering_2', 'Sub_metering_3'))
+axis(1, seq(1, nrow(power), length.out=3), c('Thu', 'Fri', 'Sat'))
+dev.off()
